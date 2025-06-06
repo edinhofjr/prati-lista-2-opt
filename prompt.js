@@ -29,3 +29,15 @@ export function read(arr, size, message, string_or_number = Number) {
         arr.push(value);
     }
 }
+
+export function gen_random_array(size, randomizer) {
+    if (randomizer === undefined) {
+        randomizer = () => gen_random_int(100);
+    }
+
+    const arr = [];
+    for (let i = 0; i < size; i++) {
+        arr.push(randomizer());
+    }
+    return arr;
+}
